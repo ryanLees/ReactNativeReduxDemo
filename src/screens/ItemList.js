@@ -15,19 +15,8 @@ const SCREEN_WIDTH = Dimensions.get('window').width;
 
 class ItemList extends React.Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            hasErrored: false, //网络请求错误的状态
-            isLoading: false   //网络请求中的状态
-        };
-    }
-
     static navigationOptions = {
-        headerStyle: {
-          backgroundColor: 'gray',
-      },
-      title: '找回密码',
+      title: 'Item List',
     };
 
     componentDidMount() {
@@ -104,12 +93,13 @@ class ItemList extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    console.log("state输出", state.items);
+function mapStateToProps(store) {
+    console.log("store输出", store.items);
     return {
-        items: state.items,
-        hasErrored: state.itemsHasErrored,
-        isLoading: state.itemsIsLoading
+        items: store.items,
+        hasErrored: store.itemsHasErrored,
+        isLoading: store.itemsIsLoading,
+        navigationOptions: 'Log In'
     };
 };
 

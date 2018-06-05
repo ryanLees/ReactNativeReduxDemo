@@ -16,7 +16,7 @@ class RepoDetail extends Component {
         title: 'RepoDetail'
     };
     componentDidMount() {
-        // this.props.getRepoDetail('relferreira', 'react-native-redux')
+        this.props.getRepoDetail('relferreira', 'react-native-redux')
     }
     render() {
         const {repoInfo, loadingInfo} = this.props;
@@ -35,7 +35,12 @@ class RepoDetail extends Component {
     }
 }
 
-const mapStateToProps = (state) => ({repoInfo, loadingInfo});
+const mapStateToProps = (state) => {
+    return {
+        repoInfo: state.request.repoInfo,
+        loadingInfo :state.request.loadingInfo,
+    };
+}
 
 const mapDispatchToProps = {
     getRepoDetail

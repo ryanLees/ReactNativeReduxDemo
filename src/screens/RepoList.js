@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import {View, Text, FlatList, StyleSheet, SafeAreaView, Dimensions} from 'react-native';
+import {View, Text, FlatList, StyleSheet, SafeAreaView, Dimensions, Button} from 'react-native';
 import {connect} from 'react-redux';
 import {listRepos} from '../reducers/requestReducer';
+import { NavigationActions } from 'react-navigation';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
@@ -23,7 +24,7 @@ class RepoList extends Component {
     renderItem = (item) => {
         return (
             <View style={styles.item}>
-                <Text>{item.item.name}</Text>
+                <Button title={item.item.name}/>
             </View>
         );
     }
@@ -80,7 +81,12 @@ const mapStateToProps = state => {
   };
 };
 
+const navigationAction = NavigationActions.navigate({
+  action: NavigationActions.navigate({ routeName: 'RepoDetail'})
+})
+
 const mapDispatchToProps = {
   listRepos
 };
+
 export default connect(mapStateToProps, mapDispatchToProps)(RepoList);
