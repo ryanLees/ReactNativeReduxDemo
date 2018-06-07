@@ -5,6 +5,7 @@ import {listRepos} from '../reducers/requestReducer';
 import { NavigationActions } from 'react-navigation';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
+const SCREEN_HEIGHT = Dimensions.get('window').height;
 
 class RepoList extends Component {
 
@@ -13,7 +14,7 @@ class RepoList extends Component {
     };
 
     componentDidMount() {
-        this.props.listRepos('relferreira')
+        this.props.listRepos('movies')
         .then((response) => {
             console.log("请求返回", response)
         }).catch((error) => {
@@ -24,7 +25,7 @@ class RepoList extends Component {
     renderItem = (item) => {
         return (
             <View style={styles.item}>
-                <Button title={item.item.name}/>
+                <Button title={item.item.title}/>
             </View>
         );
     }
@@ -74,7 +75,7 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => {
 
-  let storedRepositories = state.request.repos.map(repo => ({ key: repo.id, ...repo }));
+  let storedRepositories = state.request.repos.movies;
   console.log("repoList:", storedRepositories)
   return {
     repos: storedRepositories

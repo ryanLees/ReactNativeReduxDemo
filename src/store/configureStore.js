@@ -20,7 +20,7 @@ import { AsyncStorage } from "react-native";
 
 //axios请求
 const client = axios.create({
-  baseURL: 'https://api.github.com',
+  baseURL: 'https://facebook.github.io',
   responseType: 'json'
 });
 

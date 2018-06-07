@@ -77,7 +77,7 @@ export function listRepos(user) {
         type: GET_REPOS,
         payload: {
             request: {
-                url: `/users/${user}/repos`
+                url: `/react-native/${user}.json`
             }
         }
     };
