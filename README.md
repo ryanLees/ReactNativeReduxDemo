@@ -1,0 +1,2 @@
+# ReactNativeReduxDemo
+一个简单的基于Redux的Demo
